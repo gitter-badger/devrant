@@ -58,7 +58,7 @@ public class UserInputParser {
                 LOGGER.info(printHelp());
                 return Optional.empty();
             }
-            if(commandLine.hasOption(OPTION_REFRESH)) {
+            if (commandLine.hasOption(OPTION_REFRESH)) {
                 ShowTask.reset();
             }
             return Optional.of(commandLineParser.parse(options, args));

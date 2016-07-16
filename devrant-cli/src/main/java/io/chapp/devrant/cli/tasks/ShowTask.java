@@ -98,7 +98,7 @@ public class ShowTask implements Task {
                 rant.getText()
         ));
 
-        if(rant.getAttachedImage().getUrl() != null) {
+        if (rant.getAttachedImage().getUrl() != null) {
             LOGGER.info("This Rant has an image. To view it run `rant open`.");
         }
     }

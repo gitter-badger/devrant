@@ -9,14 +9,18 @@ devRant CLI
 
 The [devRant CLI Tool] provides a simple way to read rants from the command line:
 
-#### Reading a rant
+#### Read a rant
 
     rant
 
-#### Dropping the local cache
+#### Drop the local cache
 
     rant --refresh
     
+#### Open the last viewed rant
+
+    rant open
+
 #### More
 
 To get more options you run:
