@@ -28,7 +28,6 @@
     </parent>
 
     <artifactId>devrant-api</artifactId>
-    <inceptionYear>2016</inceptionYear>
 
     <dependencies>
         <dependency>
@@ -45,38 +44,4 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>3.0.rc1</version>
-                <configuration>
-                    <strictCheck>true</strictCheck>
-                    <useDefaultExcludes>true</useDefaultExcludes>
-                    <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
-                    <properties>
-                        <owner>Thomas Biesaart</owner>
-                        <email>thomas.biesaart@gmail.com</email>
-                    </properties>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>check-headers</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <phase>validate</phase>
-                    </execution>
-                    <execution>
-                        <id>format-headers</id>
-                        <goals>
-                            <goal>format</goal>
-                        </goals>
-                        <phase>clean</phase>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>

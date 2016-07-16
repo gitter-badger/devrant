@@ -35,6 +35,10 @@ import java.util.List;
 public class DevRant {
     protected final DevRantApi devRantApi;
 
+    DevRant(DevRantApi devRantApi) {
+        this.devRantApi = devRantApi;
+    }
+
     /**
      * Create an instance of {@link DevRant}.
      *
@@ -57,10 +61,6 @@ public class DevRant {
                         objectMapper
                 )
         );
-    }
-
-    DevRant(DevRantApi devRantApi) {
-        this.devRantApi = devRantApi;
     }
 
     /**
@@ -108,7 +108,7 @@ public class DevRant {
     public List<Rant> getRants(int skip) {
         return handleErrors(
                 devRantApi.getRants(
-                        Sort.ALGO,
+                        Sort.RECENT,
                         50,
                         skip
                 )
