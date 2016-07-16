@@ -35,6 +35,17 @@ import java.util.Optional;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+/**
+ * This class is responsible for displaying a single rant.
+ * <p>
+ * Initially 50 rants will be downloaded to a local cache if no cache was found.
+ * Then the first rant will be removed from that cache and displayed to the user.
+ * <p>
+ * If the cache is empty the latest 50 rants will be fetched again.
+ *
+ * @author Thomas Biesaart
+ * @since 1.0.0
+ */
 public class ShowTask implements Task {
     private static final Logger LOGGER = getLogger(ShowTask.class);
     private static final String RANT_FORMAT = loadTemplate();
@@ -89,7 +100,7 @@ public class ShowTask implements Task {
             rant = cacheNewRants();
         }
 
-        save(rant);
+        saveLastRant(rant);
         LOGGER.info(String.format(
                 RANT_FORMAT,
                 rant.getUsername(),
@@ -107,7 +118,7 @@ public class ShowTask implements Task {
         LOGGER.info("Fetching rants from devRant");
         List<Rant> rants = devRant.getRants();
         Rant rant = rants.remove(0);
-        save(rants);
+        saveCache(rants);
         return rant;
     }
 
@@ -131,7 +142,7 @@ public class ShowTask implements Task {
             // Pop one item from the cache
             Rant rant = rants.get(0);
             rants.remove(0);
-            save(rants);
+            saveCache(rants);
             return rant;
         } catch (IOException e) {
             LOGGER.error("Failed to get rants from cache!", e);
@@ -147,7 +158,7 @@ public class ShowTask implements Task {
         return null;
     }
 
-    private void save(List<Rant> rants) {
+    private void saveCache(List<Rant> rants) {
         try {
             save(CACHE_FILE, rants);
         } catch (IOException e) {
@@ -155,7 +166,7 @@ public class ShowTask implements Task {
         }
     }
 
-    private void save(Rant rant) {
+    private void saveLastRant(Rant rant) {
         try {
             save(LAST_RANT_FILE, rant);
         } catch (IOException e) {

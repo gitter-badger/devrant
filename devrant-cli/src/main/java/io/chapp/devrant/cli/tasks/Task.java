@@ -15,7 +15,14 @@
  */
 package io.chapp.devrant.cli.tasks;
 
-
+/**
+ * This interface represents a task that can be started from the command line.
+ * The {@link io.chapp.devrant.cli.TaskRunner} will instantiate one of the classes that are
+ * configured in /tasks.properties and execute it.
+ *
+ * @author Thomas Biesaart
+ * @since 1.0.0
+ */
 public interface Task {
     void execute();
 }

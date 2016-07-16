@@ -25,6 +25,12 @@ import java.net.URI;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+/**
+ * This task will open the latest rant if awt {@link Desktop} is supported by the
+ * current platform.
+ *
+ * @author Thomas Biesaart
+ */
 public class OpenTask implements Task {
     private static final Logger LOGGER = getLogger(OpenTask.class);
 

@@ -25,6 +25,13 @@ import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+/**
+ * This class represents the main entry point for the application.
+ * It is responsible for the configuration of the main components and execution of the application
+ *
+ * @author Thomas Biesaart
+ * @since 1.0.0
+ */
 public class DevRantCLI extends AbstractModule {
     public static final String OPTION_HELP = "h";
     public static final String OPTION_REFRESH = "r";

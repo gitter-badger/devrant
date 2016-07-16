@@ -26,6 +26,14 @@ import java.util.Properties;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+/**
+ * This class is responsible for running tasks by name. These tasks are configured in the /tasks.properties file.
+ *
+ * If the class is found the task will be instantiated using {@link com.google.inject.Guice} and executed.
+ *
+ * @author Thomas Biesaart
+ * @since 1.0.0
+ */
 public class TaskRunner {
     private static final Logger LOGGER = getLogger(TaskRunner.class);
     private static final Properties taskDefenitions = new Properties();
